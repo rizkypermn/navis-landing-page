@@ -1,0 +1,36 @@
+{
+  "origin": "https://www.navis.rizkypermn.com",
+  "siteVersion": 2,
+  "sourceCommit": "7ae2a81917af62cfe2f6cec5ae661c6204555c95",
+  "verifiedAt": "2026-09-10T04:22:23.974Z",
+  "verification": "HTTP status and all H1/H2 headings match the static export; not a visual comparison.",
+  "pages": [
+    {
+      "route": "/",
+      "status": 200,
+      "matchedHeadings": [
+        "Diving deeper thansentiment.",
+        "Introduction",
+        "Three units,one ecosystem.",
+        "Built to Make a Difference",
+        "Start your 7-day free trial",
+        "Recent blog posts",
+        "Let’s start diving together.",
+        "Get in touch"
+      ]
+    },
+    {
+      "route": "/services/nautiq",
+      "status": 200,
+      "matchedHeadings": [
+        "Listen to What People Really Say About Your Brand",
+        "From Social conversationsto business intelligence",
+        "Everything you need,in one place.",
+        "Everything You Need to Understand the Conversation",
+        "Trusted by Businesses Across Industries",
+        "Start Listening to what Matters.",
+        "Trusted by teams diving alongside us."
+      ]
+    }
+  ]
+}

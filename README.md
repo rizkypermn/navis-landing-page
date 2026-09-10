@@ -2,6 +2,12 @@
 
 Homepage dan halaman layanan Nautiq, dengan versi HTML statis siap hosting.
 
+Sumber website yang dipublikasikan: https://www.navis.rizkypermn.com.
+Versi Sites 2 berasal dari commit `7ae2a81917af62cfe2f6cec5ae661c6204555c95`.
+Hasil pemeriksaan halaman live terhadap ekspor tercatat di `published-build.json`.
+Jalankan `node scripts/verify-published.mjs` setelah build untuk memeriksa status
+HTTP dan kecocokan judul bagian Homepage serta Nautiq dengan website live.
+
 ## Versi HTML
 
 Folder `html/` berisi hasil build yang ikut disimpan di GitHub:
