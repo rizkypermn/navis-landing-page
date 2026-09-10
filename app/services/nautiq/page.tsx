@@ -4,6 +4,8 @@ import { Platforms, Footer } from '../../sections';
 import assets from '../../assets.json';
 import './nautiq.css';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'Nautiq — Social Media Listener | Navis',
   description: 'Listen to what people really say about your brand. Monitor conversations, understand sentiment, and turn social mentions into actionable insights with Nautiq.',
