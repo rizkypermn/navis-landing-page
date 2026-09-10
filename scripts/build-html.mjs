@@ -12,7 +12,8 @@ const result = spawnSync(process.execPath, ['scripts/export-worker.mjs'], {
 if (result.error) throw result.error;
 if (result.status !== 0) process.exit(result.status ?? 1);
 const source = path.join(root, 'dist/client');
-for (const page of ['index.html', 'services/nautiq.html']) {
+const routes = ['services/nautiq', 'news/brand-crisis-detection', 'news/understanding-sudden-changes-in-public-opinion', 'news/competitor-monitoring'];
+for (const page of ['index.html', ...routes.map(route => `${route}.html`)]) {
   if (!existsSync(path.join(source, page))) throw new Error(`Missing exported page: ${page}`);
 }
 const target = path.join(root, 'html');
@@ -22,10 +23,12 @@ rmSync(target, { recursive: true, force: true });
 mkdirSync(target, { recursive: true });
 cpSync(source, target, { recursive: true });
 // Directory entrypoints work on hosts without an extensionless-URL rewrite.
-mkdirSync(path.join(target, 'services/nautiq'), { recursive: true });
-cpSync(path.join(target, 'services/nautiq.html'), path.join(target, 'services/nautiq/index.html'));
+for (const route of routes) {
+  mkdirSync(path.join(target, route), { recursive: true });
+  cpSync(path.join(target, `${route}.html`), path.join(target, route, 'index.html'));
+}
 writeFileSync(path.join(target, '.nojekyll'), '');
-for (const page of ['index.html', 'services/nautiq/index.html']) {
+for (const page of ['index.html', ...routes.map(route => `${route}/index.html`)]) {
   const html = readFileSync(path.join(target, page), 'utf8');
   if (!html.includes('<main') || !html.includes('<script')) throw new Error(`Incomplete HTML: ${page}`);
   for (const match of html.matchAll(/(?:src|href)="(\/[^"?#]*)/g)) {
